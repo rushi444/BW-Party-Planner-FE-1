@@ -1,4 +1,10 @@
-import { ADD, DELETE, TOGGLE_COMPLETED } from "../reducers/shoppingReducer";
+import {
+  ADD,
+  DELETE,
+  ADD_BUDGET,
+  TOGGLE_COMPLETED,
+  UPDATE_BUDGET
+} from "../reducers/shoppingReducer";
 
 export const addItem = item => {
   return {
@@ -7,10 +13,23 @@ export const addItem = item => {
   };
 };
 
-export const toggleCompleted = id => {
+export const addBudget = budget => {
+  return {
+    type: ADD_BUDGET,
+    payload: budget
+  };
+};
+export const updateBudget = price => {
+  return {
+    type: UPDATE_BUDGET,
+    payload: price
+  };
+};
+
+export const toggleCompleted = (id, price) => {
   return {
     type: TOGGLE_COMPLETED,
-    payload: id
+    payload: { id, price }
   };
 };
 
